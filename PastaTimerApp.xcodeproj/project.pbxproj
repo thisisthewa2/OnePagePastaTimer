@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		4BB25FB629A60BF9009A4F76 /* PastaTimerAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB25FB529A60BF9009A4F76 /* PastaTimerAppApp.swift */; };
-		4BB25FB829A60BF9009A4F76 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB25FB729A60BF9009A4F76 /* ContentView.swift */; };
+		4BB25FB829A60BF9009A4F76 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB25FB729A60BF9009A4F76 /* MainView.swift */; };
 		4BB25FBA29A60BFB009A4F76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BB25FB929A60BFB009A4F76 /* Assets.xcassets */; };
 		4BB25FBD29A60BFB009A4F76 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BB25FBC29A60BFB009A4F76 /* Preview Assets.xcassets */; };
 		4BB25FC729A60BFB009A4F76 /* PastaTimerAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB25FC629A60BFB009A4F76 /* PastaTimerAppTests.swift */; };
 		4BB25FD129A60BFB009A4F76 /* PastaTimerAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB25FD029A60BFB009A4F76 /* PastaTimerAppUITests.swift */; };
 		4BB25FD329A60BFB009A4F76 /* PastaTimerAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB25FD229A60BFB009A4F76 /* PastaTimerAppUITestsLaunchTests.swift */; };
+		4BB25FE029A62307009A4F76 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB25FDF29A62307009A4F76 /* TimerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,7 @@
 /* Begin PBXFileReference section */
 		4BB25FB229A60BF9009A4F76 /* PastaTimerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PastaTimerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BB25FB529A60BF9009A4F76 /* PastaTimerAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastaTimerAppApp.swift; sourceTree = "<group>"; };
-		4BB25FB729A60BF9009A4F76 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4BB25FB729A60BF9009A4F76 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		4BB25FB929A60BFB009A4F76 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BB25FBC29A60BFB009A4F76 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4BB25FC229A60BFB009A4F76 /* PastaTimerAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PastaTimerAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +45,7 @@
 		4BB25FCC29A60BFB009A4F76 /* PastaTimerAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PastaTimerAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BB25FD029A60BFB009A4F76 /* PastaTimerAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastaTimerAppUITests.swift; sourceTree = "<group>"; };
 		4BB25FD229A60BFB009A4F76 /* PastaTimerAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastaTimerAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4BB25FDF29A62307009A4F76 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +97,8 @@
 			isa = PBXGroup;
 			children = (
 				4BB25FB529A60BF9009A4F76 /* PastaTimerAppApp.swift */,
-				4BB25FB729A60BF9009A4F76 /* ContentView.swift */,
+				4BB25FB729A60BF9009A4F76 /* MainView.swift */,
+				4BB25FDF29A62307009A4F76 /* TimerView.swift */,
 				4BB25FB929A60BFB009A4F76 /* Assets.xcassets */,
 				4BB25FBB29A60BFB009A4F76 /* Preview Content */,
 			);
@@ -257,7 +260,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4BB25FB829A60BF9009A4F76 /* ContentView.swift in Sources */,
+				4BB25FE029A62307009A4F76 /* TimerView.swift in Sources */,
+				4BB25FB829A60BF9009A4F76 /* MainView.swift in Sources */,
 				4BB25FB629A60BF9009A4F76 /* PastaTimerAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
