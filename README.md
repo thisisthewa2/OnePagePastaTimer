@@ -84,7 +84,9 @@ struct MainView: View {
     }
     
 }
-
+```
+```
+import SwiftUI
 struct TimerView: View {
     @ObservedObject var viewModel: EnvironmentViewModel //주석 1 참고
     @State var secondsLeft: Int = 0
