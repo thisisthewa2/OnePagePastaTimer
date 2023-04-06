@@ -4,6 +4,7 @@
 
 ![Simulator Screen Recording - iPhone 14 Pro - 2023-04-06 at 15 58 53](https://user-images.githubusercontent.com/119280160/230296139-97db8f4a-3d78-4e25-b543-dc41d3185285.gif)
 
+- 메인화면 코드
 ```
 import SwiftUI
 class EnvironmentViewModel : ObservableObject{
@@ -85,6 +86,7 @@ struct MainView: View {
     
 }
 ```
+- 타이머 화면 코드
 ```
 import SwiftUI
 struct TimerView: View {
