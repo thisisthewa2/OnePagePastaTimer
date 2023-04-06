@@ -197,7 +197,9 @@ func makeBody(configuration: Configuration) -> some View {
 }
 
 ```
+
 - 어려웠던 점 & 새로 배운 점
+
 1. 타이머: 첫 사용이라 많이 어려웠다.
 2. ObservableObject: 멀티뷰에서 같은 데이터를 다뤄야함> 관성처럼 @AppCoreData를 사용하다가 문득 로컬에 저장할 필요가 없다는 것을 알고 바꿨다.
         이것도 첫 사용.
