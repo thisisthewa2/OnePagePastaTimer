@@ -197,3 +197,12 @@ func makeBody(configuration: Configuration) -> some View {
 }
 
 ```
+- 어려웠던 점 & 새로 배운 점
+1. 타이머: 첫 사용이라 많이 어려웠다.
+2. ObservableObject: 멀티뷰에서 같은 데이터를 다뤄야함> 관성처럼 @AppCoreData를 사용하다가 문득 로컬에 저장할 필요가 없다는 것을 알고 바꿨다.
+        이것도 첫 사용.
+ EnvironmentViewModel: publisher -> MainView: 인자로 viewModel 전달 -> TimerView: 파스타를 선택했을 때에만 종류에 맞는 시간+타이머뷰 보여줌
+    StateObject는 작동 중화면을 다시 그리지 않을 때, ObservedObject는 화면을 다시 그려야할 때 사용한다고 들어서 파스타를 클릭하는 화면(MainView)에는 StateObject를 사용, 클릭한 버튼 인덱스에 따라 타이머를 새로 그려야 하는 TimerView에는 ObservedObject를 사용.
+                return String(format: "%02d:%02d", minutes, seconds)ㅓ
+                return String(format: "%02d:%02d", minutes, seconds)ㅁ
+                return String(format: "%02d:%02d", minutes, seconds)
