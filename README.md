@@ -218,6 +218,22 @@ var selectedIndex: Int = 0 {
     }
 }
 ```
-
+3. filter 함수의 사용법을 새로 배웠다.
+```
+Button(action: {
+                            //다른 모든 버튼이 선택되지 않았을 때만 참이 되는 변수
+                            let allOtherButtonsNotClicked = self.viewModel.isClicked.filter { $0 }.count == 0
+                            if allOtherButtonsNotClicked || self.viewModel.isClicked[index] {
+                                self.viewModel.isClicked[index].toggle()
+                                if self.viewModel.isClicked[index] {
+                                    self.viewModel.backgroundColor[index] = Color("pink")
+                                    self.viewModel.rightIndex = index
+                                } else {
+                                    self.viewModel.backgroundColor[index] = Color("greenbutton")
+                                }
+                            }
+                      }
+ ```
+             
 
                 
