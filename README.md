@@ -200,30 +200,18 @@ func makeBody(configuration: Configuration) -> some View {
 
 - 어려웠던 점 & 새로 배운 점
 
-1. ViewModel과 데이터바인딩을 알게 되었다.
+1. ViewModel과 멀티뷰에서 하나의 객체에 접근하는 방법에 대해 알게 되었다.
 
 다른 파스타 유형을 선택했을 때, 즉 데이터가 변경되었을 때 파스타 유형에 맞는 타이머 시간을 설정하기 위하여 ViewModel을 처음 사용해보았다.
-EnvironmentViewModel(ObservableObject): @Published var -> MainView: @StateObject -> TimerView: @ObservedObject 를 사용하여 MainView에서 데이터가 바뀐 경우 TimerView 화면을 다시 그리도록 설정했다.
+EnvironmentViewModel(ObservableObject): @Published var -> MainView: @StateObject -> TimerView: @ObservedObject를 MainView에서 인자로 전달한 viewModel로 초기화 를 사용하여 MainView에서 데이터가 바뀐 경우 TimerView 화면을 다시 그리도록 설정했다. 더 효율적인 방법이 있을 것 같은데 리팩토링을 통해 개선해보고 싶다.
 
-2. 아래에서처럼 프로퍼티 옵저버 didSet의 사용법을 알게 되었다.
-
-```
-var selectedIndex: Int = 0 { 
-    didSet {
-     self.secondsLeft = viewModel.time[selectedIndex]
-     self.timeLimit = viewModel.time[selectedIndex]
-     self.timer?.invalidate()
-     self.isTimerActive = false
-     // 선택된 파스타 버튼의 인덱스(selectedIndex)의 값이 변경된 직후에 호출하여 타이머 상태 변경
-    }
-}
-```
-3. filter 함수의 사용법을 새로 배웠다.
+2. filter 함수의 사용법을 새로 배웠다.
 
 한 번에 두 개의 파스타 유형이 선택되지 않도록 하기 위해 filter함수를 아래와 같이 사용했다.
 
 ```
-Button(action: {
+ForEach(viewModel.title.indices, id: \.self) { index in
+                        Button(action: {
                             //다른 모든 버튼이 선택되지 않았을 때만 참이 되는 변수
                             let allOtherButtonsNotClicked = self.viewModel.isClicked.filter { $0 }.count == 0
                             if allOtherButtonsNotClicked || self.viewModel.isClicked[index] {
@@ -235,8 +223,51 @@ Button(action: {
                                     self.viewModel.backgroundColor[index] = Color("greenbutton")
                                 }
                             }
-                      }
+                        },
  ```
-             
-
+ 3. 타이머 클래스 메서드를 처음 사용해보았다.
+ 
+ 아래에서처럼 1초 간격의 타이머가 0초 이하의 시간이 남았다거나 정지 버튼을 누르는 경우 멈추도록 하였다. 그리고 리셋버튼을 사용하는 경우 타이머 시간을 초기화하도록 작성해보았다.
+ 
+ ```
+  HStack(spacing:16){
+                Button(action: {
+                    self.secondsLeft = timeLimit
+                    isTimerActive = false
+                }){
+                    Image("resetIcon")
+                        .resizable()
+                        .frame(width: 22.0, height: 22.0)
+                }.buttonStyle(SubButton())
+                
+                Button(action: {
+                    if !isTimerActive {
+                        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+                            if secondsLeft > 0 {
+                                secondsLeft -= 1
+                            } else {
+                                //0초 이하의 시간이 남았다면 멈춤
+                                timer?.invalidate()
+                                isTimerActive = false
+                            }
+                        }
+                        isTimerActive = true
+                    }
+                }){
+                   Image("startIcon")
+                        .resizable()
+                        .frame(width: 22.0, height: 22.0)
+                }.buttonStyle(StartButton())
+                
+                Button(action: {
+                    // 타이머 멈춤
+                    timer?.invalidate()
+                    isTimerActive = false
+                }) {
+                    Image("pauseIcon")
+                        .resizable()
+                        .frame(width: 22.0, height: 22.0)
+                }.buttonStyle(SubButton())
+            }
+ ```
                 
