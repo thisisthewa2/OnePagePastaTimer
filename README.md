@@ -200,11 +200,13 @@ func makeBody(configuration: Configuration) -> some View {
 
 - 어려웠던 점 & 새로 배운 점
 
-1. ViewModel 사용법을 알게 되었다.
+1. ViewModel과 데이터바인딩을 알게 되었다.
+
 다른 파스타 유형을 선택했을 때, 즉 데이터가 변경되었을 때 파스타 유형에 맞는 타이머 시간을 설정하기 위하여 ViewModel을 처음 사용해보았다.
 EnvironmentViewModel(ObservableObject): @Published var -> MainView: @StateObject -> TimerView: @ObservedObject 를 사용하여 MainView에서 데이터가 바뀐 경우 TimerView 화면을 다시 그리도록 설정했다.
 
 2. 아래에서처럼 프로퍼티 옵저버 didSet의 사용법을 알게 되었다.
+
 ```
 var selectedIndex: Int = 0 { 
     didSet {
